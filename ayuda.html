@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>CiegosNav: ayuda y pruebas seguras</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>Ayuda y pruebas seguras</h1>
+  <p><a href="index.html">Volver a la aplicación</a></p>
+</header>
+<main>
+  <section aria-labelledby="h-limites">
+    <h2 id="h-limites">Qué hace y qué no hace esta versión</h2>
+    <ul>
+      <li>Calcula rutas a pie y te avisa de giros por voz. Usa datos de OpenStreetMap.</li>
+      <li>No sabe en qué acera estás ni detecta pasos de peatón, bordillos ni obstáculos. Esas funciones requieren cámara y LiDAR, que una aplicación web no puede usar en iPhone.</li>
+      <li>El GPS tiene varios metros de error. La aplicación te dice cuánto, y avisa cuando es demasiado.</li>
+      <li>La función de alinearse y caminar recto usa la brújula del móvil, que se altera cerca de coches, hierro y cables. Está sin validar.</li>
+      <li>Con la pantalla bloqueada o con la aplicación en segundo plano, Safari detiene el guiado. La aplicación pide mantener la pantalla encendida. Esto gasta batería: lleva una batería externa.</li>
+      <li>Sin conexión no se pueden buscar destinos ni calcular rutas.</li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="h-instalar">
+    <h2 id="h-instalar">Instalarla en el iPhone</h2>
+    <ol>
+      <li>Abre la dirección de la aplicación en Safari.</li>
+      <li>Pulsa el botón Compartir y elige «Añadir a pantalla de inicio».</li>
+      <li>Ábrela desde el icono. Pulsa «Activar sensores y voz» y concede los permisos de ubicación y de movimiento.</li>
+    </ol>
+    <p>Comprueba que el interruptor de silencio del iPhone no esté activado, porque puede silenciar los pitidos.</p>
+  </section>
+
+  <section aria-labelledby="h-pruebas">
+    <h2 id="h-pruebas">Pruebas seguras, para hacer solo</h2>
+    <p>Hazlas únicamente en un lugar sin vehículos: una plaza amplia y despejada, un patio o una zona peatonal sin tráfico. Nunca en una calzada.</p>
+
+    <h3>Prueba 1. ¿Mide bien los giros?</h3>
+    <ol>
+      <li>Colócate de frente a una pared recta, a un paso de ella, con el móvil fijo, y pulsa «Medir giro (fijar referencia)».</li>
+      <li>Da media vuelta hasta quedar de espaldas a la pared, bien alineado con ella, y pulsa de nuevo. Debería decir unos 180 grados.</li>
+      <li>Para probar 90 grados, hazlo en una esquina: primero de frente a una pared y después de frente a la otra, que forma un ángulo recto con la primera. Anota la diferencia.</li>
+      <li>Repite varias veces. Si la diferencia es habitualmente mayor de 10 grados, la brújula no es fiable en ese lugar.</li>
+      <li>Repite varias veces. Si la diferencia es habitualmente mayor de 10 grados, la brújula no es fiable en ese lugar.</li>
+    </ol>
+
+    <h3>Prueba 2. ¿Se mantiene la dirección?</h3>
+    <ol>
+      <li>Busca una fachada larga y recta en una zona peatonal sin vehículos, con la acera ancha y sin obstáculos.</li>
+      <li>Coloca el móvil fijo. Apoya el bastón en la fachada y pulsa «Fijar dirección y empezar».</li>
+      <li>Camina siguiendo la fachada. Como la fachada es recta, la aplicación debería decir casi siempre «recto» o «un poco a un lado», pero no «muy desviado».</li>
+      <li>Repite en varios lugares y a distintas horas. Descarga el registro y comprobamos los resultados.</li>
+    </ol>
+
+    <h3>Cuándo fiarte de la función de alinearse</h3>
+    <p>No la uses en un cruce con vehículos hasta que las dos pruebas salgan bien de forma repetida, y ni siquiera entonces como única guía. Decide tú, con el bastón y el oído.</p>
+  </section>
+</main>
+</body>
+</html>

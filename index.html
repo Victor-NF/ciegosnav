@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="CiegosNav">
+<meta name="theme-color" content="#0b2a5b">
+<title>CiegosNav</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon-180.png" type="image/png">
+<link rel="apple-touch-icon" href="icon-180.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="saltar" href="#principal">Saltar al contenido</a>
+
+<header>
+  <h1>CiegosNav</h1>
+  <p id="estado">Sin activar. Pulsa «Activar sensores y voz».</p>
+</header>
+
+<main id="principal">
+
+  <section aria-labelledby="h-activar">
+    <h2 id="h-activar">1. Activar</h2>
+    <p>Debes pulsar este botón al empezar. Pide permiso de ubicación y de movimiento, y activa la voz y los sonidos.</p>
+    <button type="button" id="btn-activar">Activar sensores y voz</button>
+  </section>
+
+  <section aria-labelledby="h-donde">
+    <h2 id="h-donde">2. Dónde estoy</h2>
+    <button type="button" id="btn-donde">Decir mi posición</button>
+  </section>
+
+  <section aria-labelledby="h-destino">
+    <h2 id="h-destino">3. Ir a un destino</h2>
+    <form id="form-destino">
+      <label for="destino">Destino (calle, lugar o dirección en Almería)</label>
+      <input type="search" id="destino" name="destino" autocomplete="off" autocapitalize="words" enterkeyhint="search">
+      <button type="submit" id="btn-buscar">Buscar</button>
+    </form>
+    <div id="resultados" hidden>
+      <h3 id="h-resultados" tabindex="-1">Resultados</h3>
+      <ul id="lista-resultados"></ul>
+    </div>
+  </section>
+
+  <section id="guiado" aria-labelledby="h-guiado" hidden>
+    <h2 id="h-guiado" tabindex="-1">Guiado en curso</h2>
+    <p id="destino-actual"></p>
+    <button type="button" id="btn-repetir">Repetir último aviso</button>
+    <button type="button" id="btn-restante">Distancia restante y próxima indicación</button>
+    <button type="button" id="btn-parar-guiado" class="parar">Detener guiado</button>
+  </section>
+
+  <section aria-labelledby="h-alinear">
+    <h2 id="h-alinear">4. Alinearme y caminar recto (experimental)</h2>
+    <p class="aviso"><strong>Aviso.</strong> Esta función no está validada. No la uses para cruzar una calle con vehículos hasta haber comprobado, en un lugar sin vehículos, que acierta de forma repetida. El bastón y el oído van siempre primero.</p>
+    <p>Coloca el móvil fijo, con la parte de arriba apuntando hacia delante, y no lo muevas en la mano. Mira hacia donde quieras ir y pulsa el botón. El sonido sonará del lado hacia el que debes girar. Un tictac grave en el centro significa que vas recto.</p>
+    <button type="button" id="btn-alinear">Fijar dirección y empezar</button>
+    <button type="button" id="btn-parar-alinear" class="parar" hidden>Terminar alineación</button>
+  </section>
+
+  <section aria-labelledby="h-pruebas">
+    <h2 id="h-pruebas">5. Pruebas de precisión</h2>
+    <p>Sirven para comprobar la brújula del móvil en un lugar seguro. Instrucciones en la página de ayuda.</p>
+    <button type="button" id="btn-medir">Medir giro (fijar referencia)</button>
+    <button type="button" id="btn-rumbo">Decir rumbo actual</button>
+    <button type="button" id="btn-descargar">Descargar registro de pruebas</button>
+    <button type="button" id="btn-borrar">Borrar registro</button>
+    <p><a href="ayuda.html">Ayuda y pruebas seguras</a></p>
+  </section>
+
+  <section aria-labelledby="h-ajustes">
+    <h2 id="h-ajustes">6. Ajustes</h2>
+    <label for="velocidad">Velocidad de la voz</label>
+    <input type="range" id="velocidad" min="0.7" max="1.6" step="0.1" value="1">
+    <p id="velocidad-valor"></p>
+    <p>
+      <input type="checkbox" id="usar-voiceover">
+      <label for="usar-voiceover">Leer los avisos con VoiceOver en lugar de la voz propia de la aplicación</label>
+    </p>
+  </section>
+
+  <section aria-labelledby="h-registro">
+    <h2 id="h-registro">Últimos avisos</h2>
+    <ol id="registro" reversed></ol>
+  </section>
+</main>
+
+<div id="avisos" class="solo-lector" role="status" aria-live="polite" aria-atomic="true"></div>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>

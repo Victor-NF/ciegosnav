@@ -1,0 +1,68 @@
+:root {
+  --fondo: #ffffff;
+  --texto: #111111;
+  --enlace: #0b4fa8;
+  --borde: #5a5a5a;
+  --boton: #0b2a5b;
+  --boton-texto: #ffffff;
+  --parar: #8a1010;
+  --aviso-fondo: #fff4d6;
+  --aviso-borde: #8a5a00;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --fondo: #000000;
+    --texto: #f2f2f2;
+    --enlace: #8ab8ff;
+    --borde: #9a9a9a;
+    --boton: #cfe0ff;
+    --boton-texto: #00122e;
+    --parar: #ffb3b3;
+    --aviso-fondo: #2e2610;
+    --aviso-borde: #e0b050;
+  }
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--fondo);
+  color: var(--texto);
+  font-family: -apple-system, system-ui, "Segoe UI", sans-serif;
+  font-size: 1.125rem;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0 max(1rem, env(safe-area-inset-left)) 3rem;
+}
+header, main { max-width: 40rem; margin: 0 auto; }
+h1 { font-size: 1.8rem; margin: 1rem 0 0.25rem; }
+h2 { font-size: 1.3rem; margin: 2rem 0 0.5rem; border-top: 2px solid var(--borde); padding-top: 0.75rem; }
+h3 { font-size: 1.15rem; }
+a { color: var(--enlace); }
+button, input[type="search"] {
+  font: inherit;
+  min-height: 3.25rem;
+  border-radius: 0.5rem;
+}
+button {
+  display: block;
+  width: 100%;
+  margin: 0.5rem 0;
+  padding: 0.5rem 1rem;
+  background: var(--boton);
+  color: var(--boton-texto);
+  border: 2px solid var(--borde);
+  text-align: left;
+}
+button.parar { background: transparent; color: var(--parar); border-color: var(--parar); font-weight: bold; }
+input[type="search"] { width: 100%; padding: 0.5rem; border: 2px solid var(--borde); background: var(--fondo); color: var(--texto); }
+input[type="checkbox"] { width: 1.5rem; height: 1.5rem; vertical-align: middle; }
+input[type="range"] { width: 100%; min-height: 2.5rem; }
+label { display: block; margin-top: 0.5rem; }
+input[type="checkbox"] + label { display: inline; }
+:focus-visible { outline: 4px solid var(--enlace); outline-offset: 3px; }
+.aviso { background: var(--aviso-fondo); border-left: 6px solid var(--aviso-borde); padding: 0.5rem 1rem; }
+.saltar { position: absolute; left: -999px; top: 0; padding: 0.5rem 1rem; background: var(--fondo); }
+.saltar:focus { left: 0; z-index: 10; }
+.solo-lector { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+ul, ol { padding-left: 1.25rem; }
+#lista-resultados { list-style: none; padding: 0; }
+[hidden] { display: none !important; }
